@@ -1,4 +1,4 @@
-package server
+package main
 
 import (
 	pb "github.com/rafaelmbcosta/golang-blog-experiment/blog/proto"
@@ -6,10 +6,10 @@ import (
 )
 
 type BlogItem struct {
-	ID       primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
-	AuthorId string             `json:"author_id" bson:"author_id"`
-	Title    string             `json:"title" bson:"title"`
-	Content  string             `json:"content" bson:"content"`
+	ID       primitive.ObjectID `bson:"_id,omitempty"`
+	AuthorId string             `bson:"author_id"`
+	Title    string             `bson:"title"`
+	Content  string             `bson:"content"`
 }
 
 func documentToBlog(data *BlogItem) *pb.Blog {
